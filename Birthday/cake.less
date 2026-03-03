@@ -1,0 +1,68 @@
+@D: 300px; // Control diameter
+
+.cake {
+  position: absolute;
+  display: none;
+  left: 50%;
+  top: 20px;
+  margin-left: -(@D/2);
+
+  width: @D;
+  height: @D;
+
+  background: url("cake128.png") no-repeat center center;
+  background-size: contain;
+}
+
+.cake:before,
+.cake:after,
+.cobertura,
+.bizcocho {
+  display: none;
+}
+
+/* CANDLE */
+
+.velas {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  margin-left: -(@D/40);
+  width: @D/20;
+  height: @D/5;
+  border-radius: 100%;
+  z-index: 10;
+}
+
+/* FIRE */
+
+.fuego {
+  display: none;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  margin-left: -(@D/30);
+
+  width: @D/15;
+  height: @D/10;
+
+  border-radius: 100%;
+  box-shadow: 0 0 40px 10px rgba(255, 200, 0, 0.3);
+}
+
+@keyframes fuego {
+  0% {
+    background: rgba(255, 230, 120, 0.9);
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    background: rgba(255, 80, 0, 0.3);
+    transform: translateY(-(@D/6)) scale(0);
+  }
+
+  100% {
+    background: rgba(255, 230, 120, 0.9);
+    transform: translateY(0) scale(1);
+  }
+}
