@@ -211,36 +211,38 @@ $('document').ready(function () {
 	});
 
 	$('#story').click(function () {
+
 		$(this).fadeOut('slow');
+
 		$('.cake').fadeOut('fast').promise().done(function () {
 			$('.message').fadeIn('slow');
+			msgLoop(1);   // WICHTIG: Start bei 1
 		});
 
-		var i;
-
 		function msgLoop(i) {
-			$("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
-				i = i + 1;
-				$("p:nth-child(" + i + ")").fadeIn('slow').delay(1000);
-				if (i == 50) {
-					$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
+
+			var total = $('.message p').length;
+
+			$("p:nth-child(" + i + ")")
+				.fadeIn(1500)
+				.delay(3500)
+				.fadeOut(1000)
+				.promise()
+				.done(function () {
+
+					if (i < total) {
+						msgLoop(i + 1);
+					} else {
 						$('.cake').fadeIn('fast', function () {
-							$('.heart-img').fadeIn(1500);
+							$('.heart-img').fadeIn(2000);
 						});
-					});
-				}
-				else {
-					msgLoop(i);
-				}
+					}
 
-			});
-			// body...
-		}
+				});
+			}
 
-		msgLoop(0);
-
+		});
 	});
-});
 
 
 
