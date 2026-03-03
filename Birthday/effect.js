@@ -38,7 +38,7 @@ $('document').ready(function () {
 		$('#bulb_green').addClass('bulb-glow-green-after');
 		$('#bulb_pink').addClass('bulb-glow-pink-after');
 		$('#bulb_orange').addClass('bulb-glow-orange-after');
-		$('body').css('backgroud-color', '#FFF');
+		$('body').css('background-color', '#FFF');
 		$('body').addClass('peach-after');
 		$(this).fadeOut('slow').delay(6000).promise().done(function () {
 			$('#bannar_coming').fadeIn('slow');
@@ -51,63 +51,80 @@ $('document').ready(function () {
 			$('#balloons_flying').fadeIn('slow');
 		});
 	});
-	var maxX = $(window).width() - 120;
-	var maxY = $(window).height() - 300;
 
-	function loopOne() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b1').animate({ left: randleft, top: randtop }, 10000, function () {
+	function getBounds() 
+	{
+		return {
+			maxX: $(window).width() - 100,
+			maxY: $(window).height() - 180
+		};
+	}
+
+	function loopOne() 
+	{
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b1').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopOne();
 		});
 	}
-	function loopTwo() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b2').animate({ left: randleft, top: randtop }, 10000, function () {
+	function loopTwo() 
+	{
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b2').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopTwo();
 		});
 	}
-	function loopThree() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b3').animate({ left: randleft, top: randtop }, 10000, function () {
+	function loopThree() 
+	{
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b3').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopThree();
 		});
 	}
 	function loopFour() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b4').animate({ left: randleft, top: randtop }, 10000, function () {
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b4').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopFour();
 		});
 	}
 	function loopFive() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b5').animate({ left: randleft, top: randtop }, 10000, function () {
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b5').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopFive();
 		});
 	}
 
 	function loopSix() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b6').animate({ left: randleft, top: randtop }, 10000, function () {
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b6').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopSix();
 		});
 	}
 	function loopSeven() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b7').animate({ left: randleft, top: randtop }, 10000, function () {
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b7').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopSeven();
 		});
 	}
 	function loopEight() {
-		var randleft = Math.random() * maxX;
-		var randtop = Math.random() * maxY;
-		$('#b8').animate({ left: randleft, top: randtop }, 10000, function () {
+		var bounds = getBounds();
+		var randleft = Math.random() * bounds.maxX;
+		var randtop = Math.random() * bounds.maxY;
+		$('#b8').animate({ left: randleft, top: randtop }, 8000, function () {
 			loopEight();
 		});
 	}
@@ -153,6 +170,10 @@ $('document').ready(function () {
 	$('#wish_message').click(function () {
 		vw = $(window).width() / 2;
 
+		var cake = $('.cake');
+		var cakeOffset = cake.offset();
+		var cakeWidth = cake.outerWidth();
+
 		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8').stop();
 		$('#b1').attr('id', 'b11');
 		$('#b2').attr('id', 'b22')
@@ -162,14 +183,26 @@ $('document').ready(function () {
 		$('#b6').attr('id', 'b66')
 		$('#b7').attr('id', 'b77')
 		$('#b8').attr('id', 'b88')
-		$('#b11').animate({ top: 240, left: vw - 400 }, 500);
-		$('#b22').animate({ top: 240, left: vw - 300 }, 500);
-		$('#b33').animate({ top: 240, left: vw - 200 }, 500);
-		$('#b44').animate({ top: 240, left: vw - 100 }, 500);
-		$('#b55').animate({ top: 240, left: vw + 0 }, 500);
-		$('#b66').animate({ top: 240, left: vw + 100 }, 500);
-		$('#b77').animate({ top: 240, left: vw + 200 }, 500);
-		$('#b88').animate({ top: 240, left: vw + 300 }, 500);
+
+		var centerX = cakeOffset.left + (cakeWidth / 2);
+		var topPosition = cakeOffset.top - 140; 
+		
+		var spacing = 55;
+
+		var balloonWidth = 70; 
+		var totalWidth = spacing * 7; 
+
+		var start = centerX - (totalWidth / 2) - (balloonWidth / 2) - 28;
+
+		$('#b11').animate({ top: topPosition, left: start + spacing * 0 }, 500);
+		$('#b22').animate({ top: topPosition, left: start + spacing * 1 }, 500);
+		$('#b33').animate({ top: topPosition, left: start + spacing * 2 }, 500);
+		$('#b44').animate({ top: topPosition, left: start + spacing * 3 }, 500);
+		$('#b55').animate({ top: topPosition, left: start + spacing * 4 }, 500);
+		$('#b66').animate({ top: topPosition, left: start + spacing * 5 }, 500);
+		$('#b77').animate({ top: topPosition, left: start + spacing * 6 }, 500);
+		$('#b88').animate({ top: topPosition, left: start + spacing * 7 }, 500);
+
 		$('.balloons').css('opacity', '0.9');
 		$('.balloons h2').fadeIn(3000);
 		$(this).fadeOut('slow').delay(3000).promise().done(function () {
@@ -191,9 +224,10 @@ $('document').ready(function () {
 				$("p:nth-child(" + i + ")").fadeIn('slow').delay(1000);
 				if (i == 50) {
 					$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
-						$('.cake').fadeIn('fast');
+						$('.cake').fadeIn('fast', function () {
+							$('.heart-img').fadeIn(1500);
+						});
 					});
-
 				}
 				else {
 					msgLoop(i);

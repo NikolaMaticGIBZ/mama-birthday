@@ -1291,18 +1291,32 @@ audio {
 		transform: translate(0px, 0px);
 	}
 }
+.heart-img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -35%);
+    width: 420px;      
+    z-index: 0;         
+}
+
+.cake {
+    position: relative;
+    z-index: 2;
+}
 
 .balloons {
-	position: fixed;
-	bottom: -300px;
-	left: -300px;
-	top: 0;
-	opacity: 0;
-	z-index: 99;
-	width: 100px;
-	height: 183px;
+	position: absolute;
+	width: 70px;
+	height: 130px;
 	background-repeat: no-repeat;
-	background-size: 100px 183px;
+	background-size: contain;
+	opacity: 0;
+	top: -300px;     
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
 }
 
 .balloons h2 {
@@ -1544,7 +1558,8 @@ audio {
 }
 
 .cake-cover {
-	margin-top: 50px;
+	margin-top: 120px;
+	position: relative;
 }
 
 .message {
